@@ -235,3 +235,155 @@ body {
     .detail-container, .contact-wrapper { flex-direction: column; }
     .detail-visual, .detail-info { width: 100%; }
 }
+.gateway-body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gateway-container {
+    max-width: 1100px;
+    width: 100%;
+    padding: 40px 20px;
+}
+
+.gateway-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.gateway-header h1 {
+    color: #0f172a;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.gateway-header p {
+    color: #475569;
+    font-size: 1.1rem;
+}
+
+.gateway-header strong {
+    color: #2563eb; /* Làm nổi bật tên bạn bằng màu xanh */
+}
+
+/* Bố cục 2 bảng đối xứng bằng CSS Grid */
+.gateway-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.project-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hiệu ứng nhấc bổng thẻ khi rê chuột vào */
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px rgba(15, 23, 42, 0.12);
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+}
+
+/* Định dạng riêng biệt tone màu cho bảng Cửa hàng hoa */
+.card-flower {
+    border-top: 6px solid #f43f5e;
+}
+.card-flower .card-icon {
+    background: #fff1f2;
+    color: #f43f5e;
+}
+
+/* Định dạng riêng biệt tone màu cho bảng Giới thiệu bản thân */
+.card-profile {
+    border-top: 6px solid #2563eb;
+}
+.card-profile .card-icon {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.project-card h2 {
+    color: #1e293b;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.project-card p {
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+}
+
+/* Thiết kế nút bấm chuyển hướng */
+.gateway-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #ffffff;
+    transition: filter 0.2s;
+    width: fit-content;
+}
+
+.gateway-btn:hover {
+    filter: brightness(0.9);
+}
+
+.btn-flower {
+    background: #f43f5e;
+}
+
+.btn-profile {
+    background: #2563eb;
+}
+
+.gateway-footer {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+/* Responsive cho màn hình điện thoại nhỏ */
+@media (max-width: 600px) {
+    .gateway-grid {
+        grid-template-columns: 1fr;
+    }
+    .project-card {
+        padding: 30px 20px;
+    }
+}
