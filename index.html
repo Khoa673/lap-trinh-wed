@@ -3,33 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cửa Hàng Hoa Tươi - Trang Chủ</title>
+    <title>Trung Tâm Dự Án - Thạch Khoa</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body class="gateway-body">
 
-    <nav class="navbar">
-        <div class="logo">🌸 FlowerShop</div>
-        <ul class="nav-links">
-            <li><a href="index.html" class="active">Trang Chủ</a></li>
-            <li><a href="html/gioi-thieu.html">Giới Thiệu</a></li>
-            <li><a href="html/san-pham.html">Sản Phẩm</a></li>
-            <li><a href="html/lien-he.html">Liên Hệ</a></li>
-        </ul>
-    </nav>
+    <div class="gateway-container">
+        <header class="gateway-header">
+            <h1>HỆ THỐNG SẢN PHẨM ĐỒ ÁN THỰC NGHIỆM</h1>
+            <p>Sinh viên thực hiện: <strong>Thạch Kiên Anh Khoa</strong> - Đại học Trà Vinh</p>
+        </header>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Chào Mừng Đến Với Thế Giới Hoa Tươi</h1>
-            <p>Nơi gói trọn yêu thương và gửi gắm những cảm xúc chân thành nhất qua từng cánh hoa.</p>
-            <a href="html/san-pham.html" class="btn-main">Khám Phá Ngay</a>
-        </div>
-    </header>
+        <main class="gateway-grid">
+            <div class="project-card card-flower">
+                <div class="card-icon"><i class="fas fa-seedling"></i></div>
+                <h2>Website Thương Mại FlowerShop</h2>
+                <p>Hệ thống giới thiệu và kinh doanh hoa tươi trực tuyến áp dụng kỹ thuật lưới Responsive Grid và xử lý truyền dữ liệu động qua tham số URL Query String.</p>
+                <a href="html/san-pham.html" class="gateway-btn btn-flower">Truy cập Website Hoa <i class="fas fa-arrow-right"></i></a>
+            </div>
 
-    <footer class="footer">
-        <p>&copy; 2026 Cửa Hàng Hoa Tươi. Tất cả các quyền được bảo lưu.</p>
-    </footer>
+            <div class="project-card card-profile">
+                <div class="card-icon"><i class="fas fa-user-astronaut"></i></div>
+                <h2>Hồ Sơ Năng Lực & Bản Thân</h2>
+                <p>Trang thông tin cá nhân (Portfolio), giới thiệu kỹ năng Front-End, quá trình học tập và liên kết định hướng tới dự án phân loại tính cách con người.</p>
+                <a href="html/gioi-thieu.html" class="gateway-btn btn-profile">Xem Hồ Sơ Cá Nhân <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </main>
 
-    <script src="js/script.js"></script>
+        <footer class="gateway-footer">
+            <p>&copy; 2026 Đồ án môn học Công nghệ CNTT - TVU</p>
+        </footer>
+    </div>
+
 </body>
 </html>
