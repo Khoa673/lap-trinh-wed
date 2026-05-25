@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ - Cửa Hàng Hoa</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">🌸 FlowerShop</div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Trang Chủ</a></li>
+            <li><a href="gioi-thieu.html">Giới Thiệu</a></li>
+            <li><a href="san-pham.html">Sản Phẩm</a></li>
+            <li><a href="lien-he.html" class="active">Liên Hệ</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h2>Thông Tin Liên Hệ</h2>
+                <p> <strong>Địa chỉ:</strong> THÀNH PHỐ TRÀ VINH</p>
+                <p> <strong>Hotline:</strong> 0823 676 937</p>
+                <p> <strong>Email:</strong> aktv1412@gmail.com</p>
+            </div>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Tin nhắn của bạn đã được gửi thành công!');">
+                <h2>Gửi Lời Nhắn</h2>
+                <input type="text" placeholder="Họ và tên" required>
+                <input type="email" placeholder="Email của bạn" required>
+                <textarea rows="5" placeholder="Nội dung lời nhắn..." required></textarea>
+                <button type="submit" class="btn-main">Gửi Ngay</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; Cửa Hàng Hoa Tươi.</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
