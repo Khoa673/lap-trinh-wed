@@ -235,6 +235,10 @@ body {
     .detail-container, .contact-wrapper { flex-direction: column; }
     .detail-visual, .detail-info { width: 100%; }
 }
+/* ==========================================================================
+   GIAO DIỆN TRANG CHỦ TỔNG ĐIỀU HƯỚNG (GATEWAY / LANDING PAGE)
+   ========================================================================== */
+
 .gateway-body {
     margin: 0;
     padding: 0;
@@ -386,4 +390,152 @@ body {
     .project-card {
         padding: 30px 20px;
     }
+}
+/* ==========================================================================
+   GIAO DIỆN TRANG TIỆN ÍCH MỞ RỘNG TRONG ĐỒ ÁN (MODULES INTERACTION)
+   ========================================================================== */
+.apps-page {
+    background: #f8fafc;
+}
+.apps-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+.app-box {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    border: 1px solid #e2e8f0;
+}
+.app-box h2 {
+    color: #1e293b;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+.desc-section {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+/* Thiết kế Form đăng nhập/ký */
+.auth-tabs {
+    display: flex;
+    gap: 10px;
+    border-bottom: 2px solid #e2e8f0;
+    margin-bottom: 20px;
+}
+.auth-tab-btn {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: #64748b;
+}
+.auth-tab-btn.active {
+    color: #10b981;
+    border-bottom: 3px solid #10b981;
+}
+.auth-form h3 {
+    font-size: 1.1rem;
+    color: #334155;
+    margin-bottom: 15px;
+}
+.input-group {
+    display: flex;
+    align-items: center;
+    background: #f1f5f9;
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+.input-group i {
+    color: #94a3b8;
+    margin-right: 10px;
+}
+.input-group input, .input-group select {
+    border: none;
+    background: none;
+    outline: none;
+    width: 100%;
+    font-size: 1rem;
+}
+.btn-submit, .btn-calc {
+    width: 100%;
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.hidden { display: none !important; }
+.alert-msg { margin-top: 15px; font-weight: 600; text-align: center;}
+
+/* Layout dòng hóa đơn và toán học */
+.invoice-row, .math-row {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+.invoice-row .input-group, .math-row input {
+    flex: 1;
+    margin-bottom: 0;
+}
+.math-row input {
+    background: #f1f5f9;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+.math-row .btn-calc { flex: 0.5; }
+.invoice-result {
+    margin-top: 20px;
+    background: #ecfdf5;
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 5px solid #10b981;
+}
+.invoice-result span { color: #065f46; font-weight: bold;}
+
+/* Bảng cửu chương xuất dạng danh sách */
+.table-output {
+    margin-top: 20px;
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px dashed #cbd5e1;
+}
+.table-output h3 { margin-bottom: 10px; color: #0f172a;}
+.table-output ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px;}
+.table-output li { background: #ffffff; padding: 8px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; text-align: center;}
+/* ==========================================================================
+   SỬA LỖI ĐỊNH DẠNG MÀU SẮC VÀ NÚT BẤM CHO THẺ TIỆN ÍCH
+   ========================================================================== */
+
+/* 1. Tạo viền màu xanh lá trên đầu cho thẻ Tiện ích */
+.card-apps {
+    border-top: 6px solid #10b981 !important;
+}
+
+/* 2. Định dạng vòng tròn chứa icon màu xanh lá */
+.card-apps .card-icon {
+    background: #ecfdf5 !important;
+    color: #10b981 !important;
+}
+
+/* 3. Đảm bảo nút bấm hiện lên rõ ràng và có màu xanh lá */
+.btn-apps {
+    background: #10b981 !important;
+    color: #ffffff !important;
+    display: inline-flex !important; /* Ép buộc hiện nút */
+    margin-top: 20px;
 }
