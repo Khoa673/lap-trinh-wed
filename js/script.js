@@ -1,61 +1,106 @@
-// Dữ liệu chi tiết của 6 loại hoa (Đã sửa lại khóa trùng khớp với id trên URL của file HTML)
-const flowerData = {
-    "hoado": {
-        title: "Hoa Hồng Đỏ",
-        price: "15.000 VNĐ / cành",
-        img: "../assets/hoado.jfif",
-        desc: "Biểu tượng kinh điển của tình yêu nồng cháy, sự lãng mạn và đam mê. Hoa hồng đỏ tại cửa hàng được tuyển chọn từ Đà Lạt, cánh dày mịn màng, form dáng chuẩn và giữ được hương thơm tự nhiên rất lâu."
-    },
-    "hoaduong": {
-        title: "Hoa Hướng Dương",
-        price: "25.000 VNĐ / cành",
-        img: "../assets/hoaduong.jfif",
-        desc: "Đại diện cho niềm hy vọng, sự ấm áp, trường thọ và lòng kiên định luôn hướng về phía mặt trời. Thích hợp tặng chúc mừng sinh nhật, lễ tốt nghiệp hoặc khai trương."
-    },
-    "tulip": {
-        title: "Hoa Tulip",
-        price: "40.000 VNĐ / cành",
-        img: "../assets/tulip.jfif",
-        desc: "Loài hoa mang nét quý phái, thanh lịch, đại diện cho lời tuyên bố về một tình yêu hoàn hảo. Hoa được nhập khẩu trực tiếp từ Hà Lan với công nghệ bảo quản tối tân giữ trọn sắc màu."
-    },
-    "tucau": {
-        title: "Hoa Cẩm Tú Cầu",
-        price: "60.000 VNĐ / bó",
-        img: "../assets/tucau.jfif",
-        desc: "Thể hiện sự biết ơn chân thành và những cảm xúc trọn vẹn từ trái tim. Điểm đặc biệt của loại hoa này là những cụm hoa hình cầu lớn đan xen nhiều sắc màu dịu nhẹ từ xanh, hồng đến tím."
-    },
-    "hoami": {
-        title: "Hoa Cúc Họa Mi",
-        price: "30.000 VNĐ / bó",
-        img: "../assets/hoami.jfif",
-        desc: "Mang vẻ đẹp thuần khiết, mộc mạc và dịu dàng của những ngày chớm đông. Cánh hoa mỏng manh trắng muốt ôm lấy nhụy vàng tinh khôi đem lại cảm giác bình yên, thư thái."
-    },
-    "diep": {
-        title: "Hoa Lan Hồ Điệp",
-        price: "250.000 VNĐ / chậu",
-        img: "../assets/diep.jfif",
-        desc: "Được mệnh danh là nữ hoàng của các loài hoa lan, biểu trưng cho sự giàu sang, phú quý, phong thủy thịnh vượng và cốt cách thanh cao. Hoa cực kỳ bền màu, có thể trưng bày từ 1 đến 2 tháng."
+// Dữ liệu sản phẩm (Đã tối ưu hóa đường dẫn gốc sang assets/)
+const products = [
+    { id: "hoado", name: "Hoa Hồng Đỏ", category: "Hoa Hồng", price: 15000, img: "assets/hoado.jfif", desc: "Biểu tượng của tình yêu nồng cháy.", stock: 120, origin: "Đà Lạt" },
+    { id: "hoaduong", name: "Hoa Hướng Dương", category: "Hoa Hướng Dương", price: 25000, img: "assets/hoaduong.jfif", desc: "Niềm hy vọng và năng lượng tích cực.", stock: 85, origin: "Việt Nam" },
+    { id: "tulip", name: "Hoa Tulip Đỏ", category: "Hoa Tulip", price: 40000, img: "assets/tulip.jfif", desc: "Tình yêu hoàn hảo.", stock: 60, origin: "Hà Lan" },
+    { id: "tucau", name: "Hoa Cẩm Tú Cầu", category: "Hoa Cẩm Tú Cầu", price: 60000, img: "assets/tucau.jfif", desc: "Lòng biết ơn chân thành.", stock: 45, origin: "Nhật Bản" },
+    { id: "hoami", name: "Hoa Cúc Họa Mi", category: "Hoa Cúc", price: 30000, img: "assets/hoami.jfif", desc: "Vẻ đẹp thuần khiết.", stock: 95, origin: "Đà Lạt" },
+    { id: "diep", name: "Hoa Lan Hồ Điệp", category: "Hoa Lan", price: 250000, img: "assets/diep.jfif", desc: "Nữ hoàng hoa lan.", stock: 30, origin: "Đài Loan" },
+    { id: "hongvang", name: "Hoa Hồng Vàng", category: "Hoa Vàng", price: 18000, img: "assets/hoavang.jfif", desc: "Tình bạn và niềm vui.", stock: 70, origin: "Đà Lạt" },
+    { id: "hongtrang", name: "Hoa Hồng Trắng", category: "Hoa Trắng", price: 16000, img: "assets/hoatrang.jfif", desc: "Tình yêu thuần khiết.", stock: 55, origin: "Đà Lạt" }
+];
+
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Render sản phẩm tự động sửa đường dẫn dựa theo vị trí trang
+function renderProducts() {
+    const container = document.getElementById('flower-grid');
+    if (!container) return;
+
+    // Kiểm tra xem trang hiện tại có nằm trong thư mục html/ không
+    const isInsideHtmlFolder = window.location.pathname.includes('/html/');
+    const imgPrefix = isInsideHtmlFolder ? '../' : '';
+    const linkPrefix = isInsideHtmlFolder ? '' : 'html/';
+
+    container.innerHTML = '';
+    products.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'flower-card';
+        card.innerHTML = `
+            <img src="${imgPrefix}${product.img}" alt="${product.name}">
+            <div class="flower-info">
+                <h3>${product.name}</h3>
+                <p class="flower-price">${product.price.toLocaleString('vi-VN')} VNĐ</p>
+                <p><small>${product.category}</small></p>
+                <a href="${linkPrefix}chi-tiet.html?id=${product.id}" class="btn btn-primary" style="display:block; margin:10px 0; text-decoration:none; line-height:35px; height:35px; padding:0;">Xem Chi Tiết</a>
+                <button onclick="addToCart('${product.id}')" class="btn btn-primary" style="width:100%">Thêm vào giỏ</button>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+}
+
+// Thêm vào giỏ hàng
+function addToCart(id) {
+    const product = products.find(p => p.id === id);
+    if (!product) return;
+
+    const existing = cart.find(item => item.id === id);
+    if (existing) {
+        existing.quantity += 1;
+    } else {
+        cart.push({ ...product, quantity: 1 });
     }
-};
 
-// Logic xử lý hiển thị nội dung trên trang chi-tiet.html
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    alert(`${product.name} đã được thêm vào giỏ hàng!`);
+}
+
+function updateCartCount() {
+    const countEl = document.getElementById('cart-count');
+    if (countEl) {
+        const total = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+        countEl.textContent = total;
+    }
+}
+
+// Chạy khi trang tải xong
 document.addEventListener("DOMContentLoaded", function () {
-    const urlParams = new URLSearchParams(window.location.search);
-    const flowerId = urlParams.get('id');
+    updateCartCount();
 
-    if (flowerId && flowerData[flowerId]) {
-        const flower = flowerData[flowerId];
-        
-        // Kiểm tra nếu các phần tử DOM tồn tại thì mới gán giá trị
-        if (document.getElementById("detail-title")) {
-            document.getElementById("detail-title").innerText = flower.title;
-            document.getElementById("detail-price").innerText = flower.price;
-            document.getElementById("detail-description").innerText = flower.desc;
-            
-            // ĐÃ SỬA: Tìm đúng id="detail-img" của thẻ <img> và thay đổi thuộc tính src thành đường dẫn ảnh .jfif
-            if (document.getElementById("detail-img")) {
-                document.getElementById("detail-img").src = flower.img;
-            }
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+
+    if (id && document.getElementById('detail-title')) {
+        const product = products.find(p => p.id === id);
+        if (product) {
+            const isInsideHtmlFolder = window.location.pathname.includes('/html/');
+            const imgPrefix = isInsideHtmlFolder ? '../' : '';
+
+            document.getElementById('detail-title').textContent = product.name;
+            document.getElementById('detail-price').textContent = product.price.toLocaleString('vi-VN') + " VNĐ";
+            document.getElementById('detail-description').textContent = product.desc;
+            document.getElementById('detail-img').src = imgPrefix + product.img;
+            document.getElementById('detail-category').textContent = product.category;
+            document.getElementById('detail-stock').textContent = product.stock;
+            document.getElementById('detail-origin').textContent = product.origin;
         }
     }
+
+    if (document.getElementById('flower-grid')) {
+        renderProducts();
+    }
 });
+
+function handleLogin(e) {
+    e.preventDefault();
+    alert("Đăng nhập thành công!");
+    window.location.href = "../index.html";
+}
+
+function handleRegister(e) {
+    e.preventDefault();
+    alert("Đăng ký thành công!");
+    window.location.href = "dang-nhap.html";
+}
