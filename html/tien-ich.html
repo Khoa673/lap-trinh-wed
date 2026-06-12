@@ -13,8 +13,9 @@
         <nav class="navbar">
             <div class="logo">Flower<span>Shop</span></div>
             <ul class="nav-links">
-                <li><a href="../index.html"><i class="fas fa-arrow-left"></i> Quay Về Giao Diện Điều Hướng</a></li>
-                <li><a href="#" class="active">Hệ Thống Tiện Ích JS</a></li>
+                <li><a href="../index.html">Trang Chủ Tổng</a></li>
+                <li><a href="san-pham.html">Hệ Thống Hoa</a></li>
+                <li><a href="tien-ich.html" class="active">Tiện Ích JS</a></li>
             </ul>
         </nav>
     </header>
@@ -66,7 +67,7 @@
                 <div class="input-group select-group">
                     <label for="invoice-flower-select">Chọn loại hoa:</label>
                     <select id="invoice-flower-select" onchange="updateUnitPrice()">
-                    </select>
+                        </select>
                 </div>
                 <div class="input-group price-group">
                     <label>Đơn giá gốc:</label>
@@ -88,12 +89,12 @@
             <p class="desc-section">Nhập số thứ tự bảng cửu chương bạn muốn hệ thống sinh mã thuật toán vòng lặp tự động xuất kết quả.</p>
             
             <div class="math-row">
-                <input type="number" id="math-number" min="1" max="10" value="5" placeholder="Nhập số từ 1-10" oninput="generateMultiplicationTable()">
+                <input type="number" id="math-number" min="1" max="10" value="5" placeholder="Nhập số từ 1-10">
                 <button onclick="generateMultiplicationTable()" class="btn-calc">Xuất Bảng</button>
             </div>
 
             <div id="multiplication-result" class="table-output">
-            </div>
+                </div>
         </section>
     </main>
 
