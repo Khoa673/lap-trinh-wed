@@ -3,104 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module Tiện Ích Mở Rộng</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Trung Tâm Dự Án - Thạch Khoa</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="apps-page">
+<body class="gateway-body">
 
-    <header>
-        <nav class="navbar">
-            <div class="logo">Flower<span>Shop</span></div>
-            <ul class="nav-links">
-                <li><a href="../index.html"><i class="fas fa-arrow-left"></i> Quay Về Xem Hoa (Web Gốc)</a></li>
-                <li><a href="#" class="active">Hệ Thống Tiện Ích JS</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="gateway-container">
+        <header class="gateway-header">
+            <h1>HỆ THỐNG SẢN PHẨM ĐỒ ÁN THỰC NGHIỆM</h1>
+            <p>Sinh viên thực hiện: <strong>Thạch Kiên Anh Khoa</strong> - Đại học Trà Vinh</p>
+        </header>
 
-    <main class="apps-container">
-        <section class="app-box auth-box">
-            <div class="auth-tabs">
-                <button id="tab-login" class="auth-tab-btn active" onclick="switchAuth('login')">Đăng Nhập</button>
-                <button id="tab-register" class="auth-tab-btn" onclick="switchAuth('register')">Đăng Ký</button>
-            </div>
-            
-            <form id="form-login" class="auth-form" onsubmit="handleAuth(event, 'login')">
-                <h3>ĐĂNG NHẬP HỆ THỐNG</h3>
-                <div class="input-group">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" id="login-email" placeholder="Nhập Email sinh viên" required>
-                </div>
-                <div class="input-group">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" id="login-pass" placeholder="Nhập mật khẩu" required>
-                </div>
-                <button type="submit" class="btn-submit">Vào Hệ Thống</button>
-            </form>
-
-            <form id="form-register" class="auth-form hidden" onsubmit="handleAuth(event, 'register')">
-                <h3>ĐĂNG KÝ TÀI KHOẢN MỚI</h3>
-                <div class="input-group">
-                    <i class="fas fa-user"></i>
-                    <input type="text" id="reg-name" placeholder="Họ và tên của bạn" required>
-                </div>
-                <div class="input-group">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" id="reg-email" placeholder="Địa chỉ Email" required>
-                </div>
-                <div class="input-group">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" id="reg-pass" placeholder="Tạo mật khẩu" required>
-                </div>
-                <button type="submit" class="btn-submit">Tạo Tài Khoản</button>
-            </form>
-            <p id="auth-message" class="alert-msg"></p>
-        </section>
-
-        <section class="app-box invoice-box">
-            <h2><i class="fas fa-file-invoice-dollar"></i> LẬP HÓA ĐƠN MUA HÀNG</h2>
-            <p class="desc-section">Hệ thống tự động trích xuất đơn giá từ mảng đối tượng hoa trong hệ thống dữ liệu để tính toán tổng tiền.</p>
-            
-            <div class="invoice-row">
-                <div class="input-group select-group">
-                    <label for="invoice-flower-select">Chọn loại hoa:</label>
-                    <select id="invoice-flower-select" onchange="updateUnitPrice()">
-                    </select>
-                </div>
-                <div class="input-group price-group">
-                    <label>Đơn giá gốc:</label>
-                    <input type="text" id="invoice-price-view" readonly value="0 VNĐ">
-                </div>
-                <div class="input-group qty-group">
-                    <label for="invoice-quantity">Số lượng:</label>
-                    <input type="number" id="invoice-quantity" min="1" value="1" oninput="calculateInvoice()">
-                </div>
+        <main class="gateway-grid">
+            <div class="project-card card-flower">
+                <div class="card-icon"><i class="fas fa-seedling"></i></div>
+                <h2>Website Thương Mại FlowerShop</h2>
+                <p>Hệ thống giới thiệu và kinh doanh hoa tươi trực tuyến áp dụng kỹ thuật lưới Responsive Grid và xử lý truyền dữ liệu động qua tham số URL Query String.</p>
+                <a href="html/san-pham.html" class="gateway-btn btn-flower">Truy cập Website Hoa <i class="fas fa-arrow-right"></i></a>
             </div>
 
-            <div class="invoice-result">
-                <h3>Thành Tiền Hóa Đơn: <span id="invoice-total">0 VNĐ</span></h3>
-            </div>
-        </section>
-
-        <section class="app-box math-box">
-            <h2><i class="fas fa-table"></i> TRÌNH XUẤT BẢNG CỬU CHƯƠNG</h2>
-            <p class="desc-section">Nhập số thứ tự bảng cửu chương bạn muốn hệ thống sinh mã thuật toán vòng lặp tự động xuất kết quả.</p>
-            
-            <div class="math-row">
-                <input type="number" id="math-number" min="1" max="10" value="5" placeholder="Nhập số từ 1-10" oninput="generateMultiplicationTable()">
-                <button onclick="generateMultiplicationTable()" class="btn-calc">Xuất Bảng</button>
+            <div class="project-card card-profile">
+                <div class="card-icon"><i class="fas fa-user-astronaut"></i></div>
+                <h2>Hồ Sơ Năng Lực & Bản Thân</h2>
+                <p>Trang thông tin cá nhân (Portfolio), giới thiệu kỹ năng Front-End, quá trình học tập và liên kết định hướng tới dự án phân loại tính cách con người.</p>
+                <a href="html/gioi-thieu.html" class="gateway-btn btn-profile">Xem Hồ Sơ Cá Nhân <i class="fas fa-arrow-right"></i></a>
             </div>
 
-            <div id="multiplication-result" class="table-output">
+            <div class="project-card card-apps">
+                <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+                <h2>Hệ Thống Tiện ÍCH & Logic JS</h2>
+                <p>Khu vực tích hợp các module chức năng mở rộng: Form Đăng nhập/Đăng ký, Trình tính hóa đơn mua hàng động và Bộ công cụ xuất bảng cửu chương tự động.</p>
+                <a href="html/tien-ich.html" class="gateway-btn btn-apps">Khám Phá Tiện Ích <i class="fas fa-arrow-right"></i></a>
             </div>
-        </section>
-    </main>
+        </main>
 
-    <footer>
-        <p>&copy; 2026 Hệ thống tiện ích mở rộng - Phát triển bởi Thạch Khoa TVU</p>
-    </footer>
+        <footer class="gateway-footer">
+            <p>&copy; 2026 Đồ án môn học Công nghệ CNTT - TVU</p>
+        </footer>
+    </div>
 
-    <script src="../js/tien-ich.js"></script>
 </body>
 </html>
