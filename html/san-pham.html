@@ -3,55 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sản Phẩm - FlowerShop</title>
+    <title>Sản Phẩm - Danh Sách Hoa</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="nav-container">
-            <a href="../index.html" class="logo">🌸 FlowerShop</a>
-            <ul class="nav-links">
-                <li><a href="../index.html">Trang Chủ</a></li>
-                <li><a href="gioi-thieu.html">Giới Thiệu</a></li>
-                <li><a href="san-pham.html" class="active">Sản Phẩm</a></li>
-                <li><a href="lien-he.html">Liên Hệ</a></li>
-            </ul>
-            <div style="display: flex; align-items: center; gap: 20px;">
-                <a href="gio-hang.html" class="cart-icon">🛒 <span id="cart-count" class="cart-count">0</span></a>
-                <a href="dang-nhap.html" style="color: #555; text-decoration: none;">Đăng nhập</a>
-            </div>
-        </div>
+        <div class="logo">🌸 FlowerShop</div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Trang Chủ</a></li>
+            <li><a href="gioi-thieu.html">Giới Thiệu</a></li>
+            <li><a href="san-pham.html" class="active">Sản Phẩm</a></li>
+            <li><a href="lien-he.html">Liên Hệ</a></li>
+        </ul>
     </nav>
 
-    <main class="section">
-        <h2 class="section-title">🌸 Bộ Sưu Tập Hoa Tươi</h2>
-        <div id="flower-grid" class="flower-grid"></div>
+    <main class="container">
+        <h2 class="page-title">Bộ Sưu Tập 6 Loại Hoa Nổi Bật</h2>
+        
+       <div class="flower-grid">
+            <div class="flower-card">
+                <div class="flower-image-container">
+                    <img src="../assets/hoado.jfif" alt="Hoa Hồng Đỏ" class="flower-img">
+                </div>
+                <div class="flower-details">
+                    <h3>Hoa Hồng Đỏ</h3>
+                    <p class="flower-price">15.000 VNĐ / cành</p>
+                    <a href="chi-tiet.html?id=hoado" class="btn-detail">Xem chi tiết</a>
+                </div>
+            </div>
+
+            <div class="flower-card">
+                <div class="flower-image-container">
+                    <img src="../assets/hoaduong.jfif" alt="Hoa Hướng Dương" class="flower-img">
+                </div>
+                <div class="flower-details">
+                    <h3>Hoa Hướng Dương</h3>
+                    <p class="flower-price">25.000 VNĐ / cành</p>
+                    <a href="chi-tiet.html?id=hoaduong" class="btn-detail">Xem chi tiết</a>
+                </div>
+            </div>
+
+            <div class="flower-card">
+                <div class="flower-image-container">
+                    <img src="../assets/tulip.jfif" alt="Hoa Tulip" class="flower-img">
+                </div>
+                <div class="flower-details">
+                    <h3>Hoa Tulip</h3>
+                    <p class="flower-price">40.000 VNĐ / cành</p>
+                    <a href="chi-tiet.html?id=tulip" class="btn-detail">Xem chi tiết</a>
+                </div>
+            </div>
+
+            <div class="flower-card">
+                <div class="flower-image-container">
+                    <img src="../assets/tucau.jfif" alt="Hoa Cẩm Tú Cầu" class="flower-img">
+                </div>
+                <div class="flower-details">
+                    <h3>Hoa Cẩm Tú Cầu</h3>
+                    <p class="flower-price">60.000 VNĐ / bó</p>
+                    <a href="chi-tiet.html?id=tucau" class="btn-detail">Xem chi tiết</a>
+                </div>
+            </div>
+
+            <div class="flower-card">
+                <div class="flower-image-container">
+                    <img src="../assets/hoami.jfif" alt="Hoa Cúc Họa Mi" class="flower-img">
+                </div>
+                <div class="flower-details">
+                    <h3>Hoa Cúc Họa Mi</h3>
+                    <p class="flower-price">30.000 VNĐ / bó</p>
+                    <a href="chi-tiet.html?id=hoami" class="btn-detail">Xem chi tiết</a>
+                </div>
+            </div>
+
+            <div class="flower-card">
+                <div class="flower-image-container">
+                    <img src="../assets/diep.jfif" alt="Hoa Lan Hồ Điệp" class="flower-img">
+                </div>
+                <div class="flower-details">
+                    <h3>Hoa Lan Hồ Điệp</h3>
+                    <p class="flower-price">250.000 VNĐ / chậu</p>
+                    <a href="chi-tiet.html?id=diep" class="btn-detail">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
-        <div class="footer-grid">
-            <div>
-                <h3>🌸 FlowerShop</h3>
-                <p>Mang đến không gian yêu thương qua từng bó hoa tươi đẹp nhất.</p>
-            </div>
-            <div>
-                <h3>Liên Kết</h3>
-                <p><a href="../index.html">Trang Chủ</a></p>
-                <p><a href="gioi-thieu.html">Giới Thiệu</a></p>
-                <p><a href="san-pham.html">Sản Phẩm</a></p>
-                <p><a href="lien-he.html">Liên Hệ</a></p>
-            </div>
-            <div>
-                <h3>Thông Tin</h3>
-                <p><strong>Email:</strong> aktv1412@gmail.com</p>
-                <p><strong>Hotline:</strong> 0823 676 937</p>
-                <p><strong>Địa chỉ:</strong> TP. Trà Vinh, Việt Nam</p>
-            </div>
-        </div>
-        <div style="text-align:center; margin-top:50px; padding-top:20px; border-top:1px solid #333; color:#777;">
-            hoa phải đẹp.
-        </div>
+        <p>&copy; 2026 Cửa Hàng Hoa Tươi. Tất cả các quyền được bảo lưu.</p>
     </footer>
 
     <script src="../js/script.js"></script>
