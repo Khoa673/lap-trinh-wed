@@ -1,4 +1,4 @@
-// Dữ liệu mảng đối tượng hoa hệ thống
+
 const listFlowers = [
     { id: "hoado", title: "Hoa Hồng Đỏ", price: 15000, desc: "Biểu tượng kinh điển của tình yêu lãng mạn." },
     { id: "hoaduong", title: "Hoa Hướng Dương", price: 20000, desc: "Biểu tượng của ý chí vươn lên và niềm hy vọng." },
@@ -10,12 +10,10 @@ const listFlowers = [
 // Khởi chạy hệ thống tiện ích ngay khi nạp xong trang
 document.addEventListener("DOMContentLoaded", function() {
     initFlowerSelect();
-    generateMultiplicationTable(); // Tự động chạy bảng mặc định số 5 khi vào trang
+    generateMultiplicationTable(); // Tự động chạy bảng mặc định số 5
 });
 
-// ==========================================
-// MODULE 1: XỬ LÝ ĐĂNG NHẬP / ĐĂNG KÝ
-// ==========================================
+
 function switchAuth(type) {
     const loginForm = document.getElementById('form-login');
     const regForm = document.getElementById('form-register');
@@ -50,9 +48,7 @@ function handleAuth(event, type) {
     }
 }
 
-// ==========================================
-// MODULE 2: XỬ LÝ LẬP HÓA ĐƠN TỰ ĐỘNG
-// ==========================================
+
 function initFlowerSelect() {
     const selectElement = document.getElementById('invoice-flower-select');
     selectElement.innerHTML = listFlowers.map(flower => 
@@ -61,33 +57,31 @@ function initFlowerSelect() {
     updateUnitPrice();
 }
 
-// Hàm gộp: Tự cập nhật giá gốc và tính luôn thành tiền hóa đơn (Tối ưu hơn bản cũ)
 function updateUnitPrice() {
+    const selectElement = document.getElementById('invoice-flower-select');
+    const selectedId = selectElement.value;
+    // Dùng hàm tìm kiếm đối tượng trong mảng bằng JS (.find)
+    const flower = listFlowers.find(item => item.id === selectedId);
+    
+    if (flower) {
+        document.getElementById('invoice-price-view').value = flower.price.toLocaleString('vi-VN') + " VNĐ";
+    }
+    calculateInvoice();
+}
+
+function calculateInvoice() {
     const selectElement = document.getElementById('invoice-flower-select');
     const selectedId = selectElement.value;
     const qty = parseInt(document.getElementById('invoice-quantity').value) || 1;
     
-    // Tìm kiếm đối tượng hoa duy nhất 1 lần
     const flower = listFlowers.find(item => item.id === selectedId);
-    
     if (flower) {
-        // Cập nhật Đơn giá gốc hiển thị
-        document.getElementById('invoice-price-view').value = flower.price.toLocaleString('vi-VN') + " VNĐ";
-        
-        // Tính toán luôn tổng tiền
         const total = flower.price * qty;
         document.getElementById('invoice-total').innerText = total.toLocaleString('vi-VN') + " VNĐ";
     }
 }
 
-// Giữ lại hàm này để bắt sự kiện oninput khi thay đổi số lượng ở ô Input
-function calculateInvoice() {
-    updateUnitPrice();
-}
 
-// ==========================================
-// MODULE 3: XỬ LÝ XUẤT BẢNG CỬU CHƯƠNG
-// ==========================================
 function generateMultiplicationTable() {
     const num = parseInt(document.getElementById('math-number').value);
     const resultDiv = document.getElementById('multiplication-result');
@@ -98,7 +92,7 @@ function generateMultiplicationTable() {
     }
 
     let htmlTable = `<h3>BẢNG CỬU CHƯƠNG ${num}</h3><ul>`;
-    // Vòng lặp thuật toán cơ bản xuất dữ liệu liên tiếp
+    // Vòng lặp thuật toán cơ bản xuất bảng cửu chương
     for (let i = 1; i <= 10; i++) {
         htmlTable += `<li>${num} x ${i} = <strong>${num * i}</strong></li>`;
     }
