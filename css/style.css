@@ -1,541 +1,161 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Arial, sans-serif;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+    --primary: #e91e63;
 }
 
 body {
-    background-color: #fdf8f9;
-    color: #444;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    background: #fdf8f9;
 }
 
-/* Thanh điều hướng */
 .navbar {
-    background-color: #fff;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 10%;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    height: 70px;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #d63384;
-}
+.logo { font-size: 1.8rem; font-weight: bold; color: var(--primary); text-decoration: none; }
 
 .nav-links {
-    list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 25px;
+    list-style: none;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #666;
+    color: #555;
     font-weight: 500;
-    transition: color 0.3s;
 }
 
-.nav-links a:hover, .nav-links a.active {
-    color: #d63384;
-}
+.nav-links a:hover, .nav-links a.active { color: var(--primary); }
 
-/* Container chính */
-.container {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 20px;
-    flex: 1;
-}
-
-.page-title {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #333;
-}
-
-/* Trang chủ Hero */
 .hero {
-    background: linear-gradient(rgba(254, 235, 239, 0.8), rgba(254, 235, 239, 0.8));
-    flex: 1;
+    height: 90vh;
+    background-size: cover;
+    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 40px;
-}
-
-.hero-content h1 {
-    font-size: 3rem;
-    color: #b71c1c;
-    margin-bottom: 20px;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    color: #555;
-}
-
-.btn-main {
-    display: inline-block;
-    background-color: #d63384;
     color: white;
+}
+
+.hero-content h1 { font-size: 3.5rem; text-shadow: 0 3px 10px rgba(0,0,0,0.6); }
+
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 600;
     text-decoration: none;
-    padding: 12px 30px;
-    border-radius: 25px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s;
+    transition: 0.3s;
+    margin: 0 10px;
 }
 
-.btn-main:hover {
-    background-color: #b02364;
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: #c2185b; }
+
+.btn-outline {
+    border: 2px solid white;
+    color: white;
 }
 
-/* Danh sách sản phẩm Grid */
+.btn-outline:hover {
+    background: white;
+    color: var(--primary);
+}
+
+.section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.3rem;
+    margin-bottom: 50px;
+    color: #333;
+}
+
 .flower-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
 }
 
 .flower-card {
-    background: #fff;
-    border-radius: 12px;
+    background: white;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s;
-    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: 0.4s;
 }
 
 .flower-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(233,30,99,0.2);
 }
 
-.flower-emoji {
-    background-color: #fff0f3;
-    font-size: 70px;
-    padding: 30px 0;
+.flower-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
 }
 
-.flower-details {
+.flower-info {
     padding: 20px;
-}
-
-.flower-details h3 {
-    margin-bottom: 10px;
-    color: #333;
+    text-align: center;
 }
 
 .flower-price {
-    color: #e91e63;
-    font-weight: bold;
-    margin-bottom: 15px;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.15rem;
 }
 
-.btn-detail {
-    display: inline-block;
-    border: 2px solid #d63384;
-    color: #d63384;
-    text-decoration: none;
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    transition: all 0.3s;
-}
-
-.btn-detail:hover {
-    background-color: #d63384;
-    color: #fff;
-}
-
-/* Trang Chi tiết hoa */
-.detail-container {
-    display: flex;
-    background: #fff;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-}
-
-.detail-visual {
-    background-color: #fff0f3;
-    font-size: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40%;
-    min-height: 300px;
-}
-
-.detail-info {
-    padding: 40px;
-    width: 60%;
-}
-
-.detail-price {
-    font-size: 1.5rem;
-    color: #e91e63;
-    font-weight: bold;
-    margin: 15px 0;
-}
-
-.detail-desc {
-    margin-bottom: 25px;
-    line-height: 1.6;
-}
-
-/* Trang Liên hệ */
-.contact-wrapper {
-    display: flex;
-    gap: 40px;
-    background: white;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.contact-info, .contact-form {
-    flex: 1;
-}
-
-.contact-info p {
-    margin: 15px 0;
-}
-
-.contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-}
-
-/* Footer */
 .footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 15px 0;
-    font-size: 0.9rem;
+    background: #111;
+    color: #ddd;
+    padding: 60px 20px 30px;
     margin-top: auto;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .navbar { flex-direction: column; gap: 15px; }
-    .detail-container, .contact-wrapper { flex-direction: column; }
-    .detail-visual, .detail-info { width: 100%; }
-}
-/* ==========================================================================
-   GIAO DIỆN TRANG CHỦ TỔNG ĐIỀU HƯỚNG (GATEWAY / LANDING PAGE)
-   ========================================================================== */
-
-.gateway-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.gateway-container {
-    max-width: 1100px;
-    width: 100%;
-    padding: 40px 20px;
-}
-
-.gateway-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.gateway-header h1 {
-    color: #0f172a;
-    font-size: 2.5rem;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-}
-
-.gateway-header p {
-    color: #475569;
-    font-size: 1.1rem;
-}
-
-.gateway-header strong {
-    color: #2563eb; /* Làm nổi bật tên bạn bằng màu xanh */
-}
-
-/* Bố cục 2 bảng đối xứng bằng CSS Grid */
-.gateway-grid {
+.footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    gap: 30px;
-    margin-bottom: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
 }
 
-.project-card {
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 40px;
-    text-align: center;
-    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-}
+.footer h3 { color: white; margin-bottom: 20px; }
 
-/* Hiệu ứng nhấc bổng thẻ khi rê chuột vào */
-.project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 35px rgba(15, 23, 42, 0.12);
-}
-
-.card-icon {
-    width: 80px;
-    height: 80px;
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--primary);
+    color: white;
+    font-size: 0.75rem;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.2rem;
-    margin-bottom: 25px;
-}
-
-/* Định dạng riêng biệt tone màu cho bảng Cửa hàng hoa */
-.card-flower {
-    border-top: 6px solid #f43f5e;
-}
-.card-flower .card-icon {
-    background: #fff1f2;
-    color: #f43f5e;
-}
-
-/* Định dạng riêng biệt tone màu cho bảng Giới thiệu bản thân */
-.card-profile {
-    border-top: 6px solid #2563eb;
-}
-.card-profile .card-icon {
-    background: #eff6ff;
-    color: #2563eb;
-}
-
-.project-card h2 {
-    color: #1e293b;
-    font-size: 1.6rem;
-    margin-bottom: 15px;
-}
-
-.project-card p {
-    color: #64748b;
-    line-height: 1.6;
-    font-size: 1.05rem;
-    margin-bottom: 30px;
-}
-
-/* Thiết kế nút bấm chuyển hướng */
-.gateway-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 28px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    color: #ffffff;
-    transition: filter 0.2s;
-    width: fit-content;
-}
-
-.gateway-btn:hover {
-    filter: brightness(0.9);
-}
-
-.btn-flower {
-    background: #f43f5e;
-}
-
-.btn-profile {
-    background: #2563eb;
-}
-
-.gateway-footer {
-    text-align: center;
-    color: #94a3b8;
-    font-size: 0.95rem;
-}
-
-/* Responsive cho màn hình điện thoại nhỏ */
-@media (max-width: 600px) {
-    .gateway-grid {
-        grid-template-columns: 1fr;
-    }
-    .project-card {
-        padding: 30px 20px;
-    }
-}
-/* ==========================================================================
-   GIAO DIỆN TRANG TIỆN ÍCH MỞ RỘNG TRONG ĐỒ ÁN (MODULES INTERACTION)
-   ========================================================================== */
-.apps-page {
-    background: #f8fafc;
-}
-.apps-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-.app-box {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    border: 1px solid #e2e8f0;
-}
-.app-box h2 {
-    color: #1e293b;
-    margin-bottom: 10px;
-    font-size: 1.4rem;
-}
-.desc-section {
-    color: #64748b;
-    font-size: 0.95rem;
-    margin-bottom: 20px;
-}
-/* Thiết kế Form đăng nhập/ký */
-.auth-tabs {
-    display: flex;
-    gap: 10px;
-    border-bottom: 2px solid #e2e8f0;
-    margin-bottom: 20px;
-}
-.auth-tab-btn {
-    background: none;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    color: #64748b;
-}
-.auth-tab-btn.active {
-    color: #10b981;
-    border-bottom: 3px solid #10b981;
-}
-.auth-form h3 {
-    font-size: 1.1rem;
-    color: #334155;
-    margin-bottom: 15px;
-}
-.input-group {
-    display: flex;
-    align-items: center;
-    background: #f1f5f9;
-    border-radius: 6px;
-    padding: 12px;
-    margin-bottom: 15px;
-}
-.input-group i {
-    color: #94a3b8;
-    margin-right: 10px;
-}
-.input-group input, .input-group select {
-    border: none;
-    background: none;
-    outline: none;
-    width: 100%;
-    font-size: 1rem;
-}
-.btn-submit, .btn-calc {
-    width: 100%;
-    background: #10b981;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 1rem;
-}
-.hidden { display: none !important; }
-.alert-msg { margin-top: 15px; font-weight: 600; text-align: center;}
-
-/* Layout dòng hóa đơn và toán học */
-.invoice-row, .math-row {
-    display: flex;
-    gap: 15px;
-    align-items: flex-end;
-    flex-wrap: wrap;
-}
-.invoice-row .input-group, .math-row input {
-    flex: 1;
-    margin-bottom: 0;
-}
-.math-row input {
-    background: #f1f5f9;
-    border: none;
-    padding: 12px;
-    border-radius: 6px;
-    font-size: 1rem;
-}
-.math-row .btn-calc { flex: 0.5; }
-.invoice-result {
-    margin-top: 20px;
-    background: #ecfdf5;
-    padding: 15px;
-    border-radius: 6px;
-    border-left: 5px solid #10b981;
-}
-.invoice-result span { color: #065f46; font-weight: bold;}
-
-/* Bảng cửu chương xuất dạng danh sách */
-.table-output {
-    margin-top: 20px;
-    background: #f8fafc;
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px dashed #cbd5e1;
-}
-.table-output h3 { margin-bottom: 10px; color: #0f172a;}
-.table-output ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px;}
-.table-output li { background: #ffffff; padding: 8px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; text-align: center;}
-/* ==========================================================================
-   SỬA LỖI ĐỊNH DẠNG MÀU SẮC VÀ NÚT BẤM CHO THẺ TIỆN ÍCH
-   ========================================================================== */
-
-/* 1. Tạo viền màu xanh lá trên đầu cho thẻ Tiện ích */
-.card-apps {
-    border-top: 6px solid #10b981 !important;
-}
-
-/* 2. Định dạng vòng tròn chứa icon màu xanh lá */
-.card-apps .card-icon {
-    background: #ecfdf5 !important;
-    color: #10b981 !important;
-}
-
-/* 3. Đảm bảo nút bấm hiện lên rõ ràng và có màu xanh lá */
-.btn-apps {
-    background: #10b981 !important;
-    color: #ffffff !important;
-    display: inline-flex !important; /* Ép buộc hiện nút */
-    margin-top: 20px;
 }
